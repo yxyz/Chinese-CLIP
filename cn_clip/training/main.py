@@ -313,6 +313,7 @@ def main():
 
         # Saving checkpoints.
         if args.should_save and num_steps_this_epoch > 0:
+            '''
             if (epoch + 1) == args.max_epochs or (
                 args.save_epoch_frequency > 0 and ((epoch + 1) % args.save_epoch_frequency) == 0
             ):
@@ -329,7 +330,7 @@ def main():
                     save_path,
                 )
                 logging.info("Saved checkpoint {} (epoch {} @ {} steps) (writing took {} seconds)".format(save_path, epoch + 1, steps, time.time() - t1))
-            
+            '''
             # Save the latest params
             t1 = time.time()
             save_path = os.path.join(args.checkpoint_path, f"epoch_latest.pt")
