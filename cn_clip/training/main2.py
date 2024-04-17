@@ -131,7 +131,7 @@ def main():
     #冻结所有层
     for param in model.parameters():
        param.requires_grad = False
-    只解冻文本编码器最后一层
+    #只解冻文本编码器最后一层
     for name,param in model.bert.encoder.layer[-24:].named_parameters():
         param.requires_grad=True
     #检查是不是对的
