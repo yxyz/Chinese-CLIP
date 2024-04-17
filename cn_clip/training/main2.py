@@ -130,7 +130,7 @@ def main():
         logging.info("The visual encoder is freezed during training.")
     #冻结所有层
     for name, param in model.named_parameters():
-        if "logit_scale" in name:
+        if "logit_scale" in name or "text_projection" in name:
             param.requires_grad=True
             continue
         param.requires_grad = False
