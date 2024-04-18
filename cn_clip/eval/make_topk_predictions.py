@@ -82,7 +82,7 @@ if __name__ == "__main__":
                         score_tuples.append((image_id, score))
                     idx += args.eval_batch_size
                 top_k_predictions = sorted(score_tuples, key=lambda x:x[1], reverse=True)[:args.top_k]
-                fout.write("{}\n".format(json.dumps({"text_id": text_id, "image_ids": [entry[0] for entry in top_k_predictions]})))
+                fout.write("{}\n".format(json.dumps({"text_id": text_id, "image_ids": [entry[0] for entry in top_k_predictions],"similarity": [entry[1] for entry in top_k_predictions]})))
     
     print("Top-{} predictions are saved in {}".format(args.top_k, args.output))
     print("Done!")
